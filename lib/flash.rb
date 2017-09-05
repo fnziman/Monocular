@@ -4,16 +4,14 @@ class Flash
   attr_reader :now
 
   def initialize(req)
-    if req.cookies['_rails_lite_app_flash'] #change name.. also in session
-      @now = JSON.parse(req.cookies['_rails_lite_app_flash'])
-    else
-      @now = {}
-    end
+    #change name.. also in session
+    cookie = req.cookies['_rails_lite_app_flash']
+    @now = cookie ? JSON.parse(cookie) : {}
     @flash = {}
   end
 
   def [](key)
-    @now[key.to_s] || @flash[key.to_s]
+    @now[key.to_s] || @now[key] || @flash[key.to_s]
   end
 
   def []=(key, val)
