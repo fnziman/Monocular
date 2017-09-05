@@ -5,7 +5,7 @@ class Route
 
   def initialize(pattern, http_method, controller_class, action_name)
     @pattern = pattern
-    @http_method =http_method
+    @http_method = http_method
     @controller_class = controller_class
     @action_name = action_name
   end
@@ -33,8 +33,8 @@ class Router
   end
 
   # simply adds a new route to the list of routes
-  def add_route(pattern, method, controller_class, action_name)
-    @routes << Route.new(pattern, method, controller_class, action_name)
+  def add_route(pattern, http_method, controller_class, action_name)
+    @routes << Route.new(pattern, http_method, controller_class, action_name)
   end
 
   # evaluate the proc in the context of the instance
@@ -64,9 +64,8 @@ class Router
     route = match(req)
     if route.nil?
       res.status = 404
-      # res.message
     else
-      route.run
+      route.run(req, res)
     end
   end
 end
