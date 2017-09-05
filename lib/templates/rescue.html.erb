@@ -1,0 +1,17 @@
+<head>
+  <style>
+    .header {
+      background-color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="header"><%= @error %></h2>
+  <br>
+
+  <h3>Stack Trace</h3>
+  <% @error.backtrace.each do |trace| %>
+    <%= trace %>
+    <br>
+  <% end %>
+</body>
