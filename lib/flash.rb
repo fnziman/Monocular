@@ -5,7 +5,7 @@ class Flash
 
   def initialize(req)
     #change name.. also in session
-    cookie = req.cookies['_rails_lite_app_flash']
+    cookie = req.cookies['_monocular_flash']
     @now = cookie ? JSON.parse(cookie) : {}
     @flash = {}
   end
