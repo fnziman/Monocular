@@ -1,0 +1,11 @@
+<h1>Favorite TV Shows</h1>
+
+<p><%= flash[:notice] if flash[:notice] %></p>
+
+<ul>
+  <% @shows.each do |show| %>
+    <li><%= show.title %>, <%= show.personal_rating %> Stars</li>
+  <% end %>
+</ul>
+
+<a href="/shows/new">Add a Favorite TV Show</a>

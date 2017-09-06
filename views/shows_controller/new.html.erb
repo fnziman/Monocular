@@ -1,0 +1,20 @@
+<h1>Add a Favorite TV Show</h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+    <br>
+  <% end %>
+<% end %>
+
+<form action="/shows" method="POST">
+  <label>Title
+    <input type="text" name="show[title]" value="<%= @show.title %>">
+  </label>
+
+  <label>Personal Rating
+    <input type="text" name="show[personal_rating]" value="<%= @show.personal_rating %>">
+  </label>
+
+  <input type="submit" value="Add Show">
+</form>
