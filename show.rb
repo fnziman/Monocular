@@ -62,6 +62,7 @@ router.draw do
   get Regexp.new("^/shows/new$"), ShowsController, :new
   post Regexp.new("^/shows$"), ShowsController, :create
   get Regexp.new("^/shows$"), ShowsController, :index
+  get Regexp.new("^/$"), ShowsController, :index
 end
 
 app = Proc.new do |env|

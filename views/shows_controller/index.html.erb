@@ -12,18 +12,23 @@
     text-align: center;
     margin: 0 0 25px 0;
   }
+  h3 {
+    text-align: center;
+  }
   .shows {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     text-align: center;
     align-self: center;
-    min-width: 470px;
-    list-style: none;
     border: 5px solid red;
     padding: 10px;
     max-height: 450px;
     line-height: 1.5;
+    margin: 10px 0;
+  }
+  th, td {
+    padding: 10px;
   }
   a {
     color: black;
@@ -35,13 +40,20 @@
 
 <h1>Favorite TV Shows</h1>
 
-<p><%= flash[:notice] if flash[:notice] %></p>
+<div><%= flash[:notice] if flash[:notice] %></div>
 
-<ul class="shows">
-  Shows
+<table class="shows">
+  <h3>Shows</h3>
+  <tr>
+    <th>Title</th>
+    <th>Rating</th>
+  </tr>
   <% @shows.each do |show| %>
-    <li>Title: <%= show.title %>, Rating: <%= show.personal_rating %> Stars</li>
+  <tr>
+    <td><%= show.title %></td>
+    <td><%= show.personal_rating %> Stars</td>
+  </tr>
   <% end %>
-</ul>
+</table>
 
 <a href="/shows/new">Add a Favorite TV Show</a>

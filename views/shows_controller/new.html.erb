@@ -25,6 +25,7 @@
   }
   .errors {
     margin-left: 25px;
+    line-height: 1.5;
   }
   #submit {
     align-self: center;
@@ -46,6 +47,7 @@
 </div>
 
 <form action="/shows" method="POST">
+  Create Favorite Show
   <label>Title
     <input type="text" name="show[title]" placeholder="Title" value="<%= @show.title %>">
   </label>

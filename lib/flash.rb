@@ -19,7 +19,7 @@ class Flash
   end
 
   def store_flash(res)
-    res.set_cookie('_rails_lite_app_flash', value: @flash.to_json, path: '/')
+    res.set_cookie('_monocular_flash', value: @flash.to_json, path: '/')
   end
 
 end
