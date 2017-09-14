@@ -38,6 +38,7 @@
 <p><%= flash[:notice] if flash[:notice] %></p>
 
 <ul class="shows">
+  Shows
   <% @shows.each do |show| %>
     <li>Title: <%= show.title %>, Rating: <%= show.personal_rating %> Stars</li>
   <% end %>
