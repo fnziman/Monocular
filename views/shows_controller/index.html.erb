@@ -1,10 +1,45 @@
+<style media="screen">
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
+  h1 {
+    font-size: 38px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    margin: 0 0 25px 0;
+  }
+  .shows {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    align-self: center;
+    min-width: 470px;
+    list-style: none;
+    border: 5px solid red;
+    padding: 10px;
+    max-height: 450px;
+    line-height: 1.5;
+  }
+  a {
+    color: black;
+    text-align: center;
+  }
+
+</style>
+
+
 <h1>Favorite TV Shows</h1>
 
 <p><%= flash[:notice] if flash[:notice] %></p>
 
-<ul>
+<ul class="shows">
   <% @shows.each do |show| %>
-    <li><%= show.title %>, <%= show.personal_rating %> Stars</li>
+    <li>Title: <%= show.title %>, Rating: <%= show.personal_rating %> Stars</li>
   <% end %>
 </ul>
 

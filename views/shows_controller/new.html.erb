@@ -1,20 +1,57 @@
+<style media="screen">
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
+  h1 {
+    font-size: 38px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    margin: 0 0 25px 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 280px;
+    height: 200px;
+    align-self: center;
+    border: 5px solid red;
+    padding: 10px;
+  }
+  .errors {
+    margin-left: 25px;
+  }
+  #submit {
+    align-self: center;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+  }
+</style>
 <h1>Add a Favorite TV Show</h1>
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <%= error %>
-    <br>
+<div class="errors">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+      <br>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <form action="/shows" method="POST">
   <label>Title
-    <input type="text" name="show[title]" value="<%= @show.title %>">
+    <input type="text" name="show[title]" placeholder="Title" value="<%= @show.title %>">
   </label>
-
   <label>Personal Rating
-    <input type="text" name="show[personal_rating]" value="<%= @show.personal_rating %>">
+    <input type="text" name="show[personal_rating]" placeholder="(1-5) Stars" value="<%= @show.personal_rating %>">
   </label>
 
-  <input type="submit" value="Add Show">
+  <input id="submit" type="submit" value="Add Show">
 </form>
